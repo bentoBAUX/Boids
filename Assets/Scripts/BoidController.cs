@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 public class BoidController : MonoBehaviour
 {
     public float speed;
     public float spawnRadius;
     public float spawnCount;
     public GameObject boidPrefab;
-
+    
     private void Start()
     {
         for (int i = 0; i < spawnCount; i++)
@@ -25,6 +27,7 @@ public class BoidController : MonoBehaviour
         var rotation = Quaternion.Slerp(transform.rotation, Random.rotation, 0.3f);
         var boid = Instantiate(boidPrefab, position, rotation) as GameObject;
         boid.GetComponent<BoidBehaviour>().controller = this;
+
         return boid;
     }
 }
