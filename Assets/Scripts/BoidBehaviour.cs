@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +7,28 @@ public class BoidBehaviour : MonoBehaviour
 {
     public BoidController controller;
     [SerializeField] private float steeringSpeed;
-    
+
+    private Vector3 steerDirection;
+
+    private void Start()
+    {
+        steerDirection = Vector3.zero;
+    }
+
     void Update()
     {
-        var steering = Vector3.zero;
+        transform.position += transform.forward * (controller.speed * Time.deltaTime);
+    }
 
-        if (steering != Vector3.zero)
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(steering), steeringSpeed * Time.deltaTime );
-        }
+    public void AddSteer(Vector3 steerDirection)
+    {
+        this.steerDirection += steerDirection;
         
-        Vector3 forwardDirection = transform.TransformDirection(Vector3.forward);
-        transform.Translate(forwardDirection * (controller.speed * Time.deltaTime));
+        if (steerDirection != Vector3.zero)
+        {
+            Debug.Log("Steering");
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(this.steerDirection), steeringSpeed * Time.deltaTime );
+        }
     }
 
     public float SteeringSpeed

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 
-public class Wrap: Rule
+public class Wrap: MonoBehaviour
 {
     private float wrapRadius;
     private Vector3 origin;
@@ -13,16 +13,8 @@ public class Wrap: Rule
     [SerializeField]private float epsilon;
     
     
-
-    public override void Apply(Transform boidTransform, bool enabled)
-    {
-        this.boidTransform = boidTransform;
-        this.enabled = enabled;
-    }
-
     public void Apply(Transform boidTransform, bool enabled, float wrapRadius, Vector3 origin)
     {
-        this.enabled = enabled;
         this.wrapRadius = wrapRadius;
         this.origin = origin;
         

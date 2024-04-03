@@ -461,9 +461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae0f6612f31be94faa0103df52faf9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 10
   spawnRadius: 1
-  spawnCount: 20
+  spawnCount: 100
   boidPrefab: {fileID: 8320246985445446413, guid: 69164acbcc536d749aba1dcc70c0b2f8,
     type: 3}
 --- !u!4 &1033205184
@@ -495,11 +495,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FOVAngle: 270
   personalSpaceRadius: 10
-  neighbourRadius: 100
   wrapRadius: 50
   wrapOrigin: {x: 0, y: 0, z: 0}
   rules:
-    Separation: 0
+    Separation: 1
     Alignment: 0
     Cohesion: 0
     Wrap: 1

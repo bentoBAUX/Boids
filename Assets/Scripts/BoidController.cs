@@ -13,10 +13,20 @@ public class BoidController : MonoBehaviour
     {
         for (int i = 0; i < spawnCount; i++)
         {
+            //StartCoroutine(startSpawn());
             Spawn();
         }
     }
 
+    IEnumerator startSpawn()
+    {
+        for (int i = 0; i < spawnCount; i++)
+        {
+            Spawn();
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+    
     private GameObject Spawn()
     {
         return Spawn(transform.position + Random.insideUnitSphere * spawnRadius);

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class RuleManager : MonoBehaviour
@@ -13,10 +14,17 @@ public class RuleManager : MonoBehaviour
     private Cohesion cohesion;
     private Wrap wrap;
 
+    //Separation
+    public float FOVAngle;
+    public float personalSpaceRadius;
+    
+    //Alignment
+    public float neighbourRadius;
+    
+    //Wrap 
     public float wrapRadius;
     public Vector3 wrapOrigin;
 
-    public float FOVAngle;
 
     private static Transform[] boids;
 
@@ -60,9 +68,9 @@ public class RuleManager : MonoBehaviour
 
     IEnumerator applyRules(Transform boid)
     {   
-        separation.Apply(boid,rules.Separation,FOVAngle);
-        alignment.Apply(boid,rules.Alignment);
-        cohesion.Apply(boid,rules.Cohesion);
+        separation.Apply(boid,rules.Separation,FOVAngle,personalSpaceRadius);
+        alignment.Apply(boid,rules.Alignment,FOVAngle, neighbourRadius);
+        cohesion.Apply(boid,rules.Cohesion, FOVAngle, neighbourRadius);
         wrap.Apply(boid,rules.Wrap, wrapRadius, wrapOrigin);
         yield return null;
     }

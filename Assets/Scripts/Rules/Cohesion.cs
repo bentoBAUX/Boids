@@ -3,12 +3,8 @@
 
 public class Cohesion : Rule
 {
-    public override void Apply(Transform boidTransform, bool enabled)
+    public override void Apply(Transform boidTransform, bool enabled, float FOVAngle, float boundaryRadius)
     {
-        this.enabled = enabled;
-        if (enabled)
-            Debug.Log("Cohesion On");
+        base.Apply(boidTransform, enabled, FOVAngle, boundaryRadius);
     }
-    
-    
 }
