@@ -4,9 +4,13 @@ using System.Collections.Generic;
 
 public class BoidController : MonoBehaviour
 {
-    public float speed;
+    
+    public float minSpeed;
+    public float maxSpeed;
+    [Space(10)]
     public float spawnRadius;
     public float spawnCount;
+    [Space(10)]
     public GameObject boidPrefab;
     
     private void Start()
@@ -39,5 +43,10 @@ public class BoidController : MonoBehaviour
         boid.GetComponent<BoidBehaviour>().controller = this;
 
         return boid;
+    }
+
+    public float getSpeed()
+    {
+        return Random.Range(minSpeed, maxSpeed);
     }
 }

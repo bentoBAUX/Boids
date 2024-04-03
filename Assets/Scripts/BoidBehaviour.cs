@@ -9,15 +9,17 @@ public class BoidBehaviour : MonoBehaviour
     [SerializeField] private float steeringSpeed;
 
     private Vector3 steerDirection;
+    private float speed;
 
     private void Start()
     {
         steerDirection = Vector3.zero;
+        speed = controller.getSpeed();
     }
 
     void Update()
     {
-        transform.position += transform.forward * (controller.speed * Time.deltaTime);
+        transform.position += transform.forward * (speed* Time.deltaTime);
     }
 
     public void AddSteer(Vector3 steerDirection)
@@ -26,7 +28,6 @@ public class BoidBehaviour : MonoBehaviour
         
         if (steerDirection != Vector3.zero)
         {
-            Debug.Log("Steering");
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(this.steerDirection), steeringSpeed * Time.deltaTime );
         }
     }
