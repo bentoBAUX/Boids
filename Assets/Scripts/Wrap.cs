@@ -6,14 +6,14 @@ using UnityEngine;
 public class Wrap: MonoBehaviour
 {
     private float wrapRadius;
-    private Vector3 origin;
+    private Transform origin;
     
     private Transform boidTransform;
 
     [SerializeField]private float epsilon;
     
     
-    public void Apply(Transform boidTransform, bool enabled, float wrapRadius, Vector3 origin)
+    public void Apply(Transform boidTransform, bool enabled, float wrapRadius, Transform origin)
     {
         this.wrapRadius = wrapRadius;
         this.origin = origin;
@@ -26,14 +26,14 @@ public class Wrap: MonoBehaviour
     
     public void setNewPosition(Transform boidTransform)
     {
-        Vector3 directionToCenter = (origin - boidTransform.position).normalized;
-        Vector3 newPosition = origin + directionToCenter * (wrapRadius - epsilon);
+        Vector3 directionToCenter = (origin.position - boidTransform.position).normalized;
+        Vector3 newPosition = origin.position + directionToCenter * (wrapRadius - epsilon);
         
         boidTransform.position = newPosition;
     }
 
     public bool isOutside(Transform boidTransform)
     {
-        return Vector3.Distance(boidTransform.position,origin)>wrapRadius;
+        return Vector3.Distance(boidTransform.position,origin.position)>wrapRadius;
     }
 }

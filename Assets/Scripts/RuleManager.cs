@@ -24,6 +24,7 @@ public class RuleManager : MonoBehaviour
         [Range(0,200)]public float separationWeight;
         [Range(0,200)]public float alignmentWeight;
         [Range(0,200)]public float cohesionWeight;
+        [Range(0,200)]public float leadershipWeight;
     }
     
     [System.Serializable]
@@ -32,7 +33,7 @@ public class RuleManager : MonoBehaviour
         [Space(10)]
         public float wrapRadius;
         [Space(10)]
-        public Vector3 wrapOrigin;
+        public Transform wrapOrigin;
     }
 
     [System.Serializable]
@@ -42,6 +43,7 @@ public class RuleManager : MonoBehaviour
         public bool Separation=false;
         public bool Alignment=false;
         public bool Cohesion=false;
+        public bool Leadership = false;
         [Space(10)]
         public bool Wrap=false;
     }
@@ -80,9 +82,9 @@ public class RuleManager : MonoBehaviour
     IEnumerator applyRules(Transform boid)
     {   
         
-        rules.Apply(boid, rulesMenu.Separation, rulesMenu.Alignment, rulesMenu.Cohesion, 
+        rules.Apply(boid, rulesMenu.Separation, rulesMenu.Alignment, rulesMenu.Cohesion, rulesMenu.Leadership,
                                         rulesSettings.FOVAngle, rulesSettings.separationThreshold, rulesSettings.proximityThreshold, 
-                                        rulesSettings.separationWeight/100f,rulesSettings.alignmentWeight/100f,rulesSettings.cohesionWeight/100f);
+                                        rulesSettings.separationWeight/100f,rulesSettings.alignmentWeight/100f,rulesSettings.cohesionWeight/100f,rulesSettings.leadershipWeight/100f);
         wrap.Apply(boid,rulesMenu.Wrap, wrapSettings.wrapRadius, wrapSettings.wrapOrigin);
         yield return null;
     }
