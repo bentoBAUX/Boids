@@ -80,8 +80,7 @@ public class RuleManager : MonoBehaviour
     }
 
     IEnumerator applyRules(Transform boid)
-    {   
-        
+    {
         rules.Apply(boid, rulesMenu.Separation, rulesMenu.Alignment, rulesMenu.Cohesion, rulesMenu.Leadership,
                                         rulesSettings.FOVAngle, rulesSettings.separationThreshold, rulesSettings.proximityThreshold, 
                                         rulesSettings.separationWeight/100f,rulesSettings.alignmentWeight/100f,rulesSettings.cohesionWeight/100f,rulesSettings.leadershipWeight/100f);

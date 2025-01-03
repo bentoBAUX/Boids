@@ -209,13 +209,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.041582346, y: 0.7849777, z: -0.08170779, w: -0.6127029}
-  m_LocalPosition: {x: 13, y: 15, z: 84}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 50, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 10.325, y: -103.87, z: 2.03}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,12 +500,12 @@ MonoBehaviour:
     Wrap: 1
   rulesSettings:
     FOVAngle: 270
-    separationThreshold: 5
+    separationThreshold: 1
     proximityThreshold: 200
-    separationWeight: 162
-    alignmentWeight: 47
-    cohesionWeight: 9
-    leadershipWeight: 152
+    separationWeight: 65
+    alignmentWeight: 147
+    cohesionWeight: 151
+    leadershipWeight: 200
   wrapSettings:
     wrapRadius: 100
     wrapOrigin: {fileID: 2062195072}
