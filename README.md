@@ -1,4 +1,5 @@
 # Boid Behaviour Simulation
+![GIF](https://github.com/bentoBAUX/Boids/blob/main/Assets/GIF/Boids.gif)
 
 ## Overview
 Inspired by Sebastian Lague's mesmerising [Boids project](https://www.youtube.com/watch?v=bqtqltqcQhw), I set out to challenge myself by simulating flocking behaviour, such as that of birds or fish. This project features a flexible system that allows real-time control over flocking behaviours via the Unity inspector, providing a dynamic and interactive simulation experience.
