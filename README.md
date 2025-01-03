@@ -78,5 +78,5 @@ Boid behaviour can be configured in real time via the `Boid Manager` component i
   - **Wrap Origin:** Defines the centre point of the sphere.
 
 ## License
-This project is licensed under the MIT Licence. See the LICENSE file for details.
+This project is licensed under the MIT Licence. See the [LICENSE](https://github.com/bentoBAUX/Boids/blob/main/LICENSE) file for details.
 
